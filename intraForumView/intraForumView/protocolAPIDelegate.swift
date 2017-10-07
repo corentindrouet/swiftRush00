@@ -10,5 +10,4 @@ import Foundation
 
 protocol API42Delegate: NSObjectProtocol {
     func treatTopic(str: String)
-    func treatMessage(str: String)
 }

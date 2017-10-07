@@ -9,6 +9,8 @@
 import UIKit
 
 class topicsTableView: UITableViewController {
+    
+    var topics: [Topic]?
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -17,5 +19,14 @@ class topicsTableView: UITableViewController {
         // Drawing code
     }
     */
-
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (topics?.count)!
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell") as! topicViewCell
+        let tmp = topics?[indexPath.row]
+        cell.topic = tmp
+        return cell
+    }
 }
