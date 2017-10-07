@@ -43,6 +43,7 @@ class ViewController: UIViewController, API42Delegate, UIWebViewDelegate {
                 print(code)
                 webView.isHidden = true
                 ApiController = APIController(newDelegate: self, newCredentials: credentials, code: code[1])
+                
             }
         }
         return true
