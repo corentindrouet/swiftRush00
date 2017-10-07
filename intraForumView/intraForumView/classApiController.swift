@@ -13,12 +13,11 @@ class APIController {
     var token: String?
     let credentials: credentialsStruct?
     
-    func 
-    
-    init(newDelegate: API42Delegate?, newCredentials: credentialsStruct) {
+    init(newDelegate: API42Delegate?, newCredentials: credentialsStruct, code: String) {
         self.delegate = newDelegate
         self.credentials = newCredentials
-        let options = ("client_id=" + (self.credentials?.UID!)! + "&client_secret=" + (self.credentials?.Secret!)! + "&grant_type=client_credentials").data(using: String.Encoding.utf8)
+        //let options = ("code=" + code + "&client_id=" + (self.credentials?.UID!)! + "&client_secret=" + (self.credentials?.Secret!)! + "&grant_type=authorization_code").data(using: String.Encoding.utf8)
+        let options = ("grant_type=authorization_code&client_id=" + (self.credentials?.UID!)! + "&client_secret=" + (self.credentials?.Secret!)! + "&code=" + code + "&redirect_uri=http%3A%2F%2Fapi.intra.42.fr").data(using: String.Encoding.utf8)
         let url = URL(string: "https://api.intra.42.fr/oauth/token")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
@@ -26,14 +25,14 @@ class APIController {
         request.httpBody = options
         let task = URLSession.shared.dataTask(with: request) {
             (data, response, error) in
+            print(response!)
             if let err = error {
                 print(err)
             } else if let d = data {
                 do {
                     if let dic: NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
-                        print(dic)
                         if let newToken = dic["access_token"] as? String {
-                            self.token = newToken
+                            self.token = "Bearer " + newToken
                             DispatchQueue.main.async {
                                 self.delegate?.treatTopic(str: self.token!)
                             }
