@@ -10,23 +10,21 @@ import Foundation
 
 class APIControllerMessages : APIControllerRequests
 {
-    let topic: Topic
+    let message_id: UInt
+    let is_topic: Bool
     
-    init(topic: Topic, newDelegate: API42Delegate?, newCredentials: credentialsStruct, code: String)
+    init(message_id: UInt, is_topic: Bool, controller: APIController)
     {
-        self.topic = topic
-        super.init(newDelegate: newDelegate, newCredentials: newCredentials, code: code)
-    }
-    
-    init(topic: Topic, controller: APIController)
-    {
-        self.topic = topic
+        self.message_id = message_id
+        self.is_topic = is_topic
         super.init(controller: controller)
     }
     
     func getMessages()
     {
-        if let request = self.getRequestForUrl(url: "/topics/" + String(topic.id) + "/messages", httpMethod: "GET")
+        let start_url = is_topic ? "/topics/" : "/messages/"
+        let url = start_url + String(message_id) + "/messages"
+        if let request = self.getRequestForUrl(url: url, httpMethod: "GET")
         {
             let task = URLSession.shared.dataTask(with: request)
             {

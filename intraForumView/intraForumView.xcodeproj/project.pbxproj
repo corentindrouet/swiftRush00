@@ -13,6 +13,7 @@
 		8F1590CE1F8907A200CFD267 /* classTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590CA1F8907A200CFD267 /* classTopic.swift */; };
 		8F1590D01F89133700CFD267 /* classApiControllerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590CF1F89133700CFD267 /* classApiControllerRequests.swift */; };
 		8F1590D21F893A8700CFD267 /* oneTopicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590D11F893A8700CFD267 /* oneTopicTableView.swift */; };
+		8F1590D41F89463300CFD267 /* oneTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590D31F89463300CFD267 /* oneTopicTableViewCell.swift */; };
 		ACE90DE71F88ACE900287505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE90DE61F88ACE900287505 /* AppDelegate.swift */; };
 		ACE90DE91F88ACE900287505 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE90DE81F88ACE900287505 /* ViewController.swift */; };
 		ACE90DEC1F88ACE900287505 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE90DEA1F88ACE900287505 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		8F1590CA1F8907A200CFD267 /* classTopic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classTopic.swift; sourceTree = "<group>"; };
 		8F1590CF1F89133700CFD267 /* classApiControllerRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classApiControllerRequests.swift; sourceTree = "<group>"; };
 		8F1590D11F893A8700CFD267 /* oneTopicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneTopicTableView.swift; sourceTree = "<group>"; };
+		8F1590D31F89463300CFD267 /* oneTopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneTopicTableViewCell.swift; sourceTree = "<group>"; };
 		ACE90DE31F88ACE900287505 /* intraForumView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intraForumView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE90DE61F88ACE900287505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACE90DE81F88ACE900287505 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				ACE90E001F89128200287505 /* topicViewCell.swift */,
 				ACE90DFE1F8902AB00287505 /* topicsTableView.swift */,
 				8F1590D11F893A8700CFD267 /* oneTopicTableView.swift */,
+				8F1590D31F89463300CFD267 /* oneTopicTableViewCell.swift */,
 				ACE90DEA1F88ACE900287505 /* Main.storyboard */,
 				ACE90DED1F88ACE900287505 /* Assets.xcassets */,
 				ACE90DEF1F88ACE900287505 /* LaunchScreen.storyboard */,
@@ -171,6 +174,7 @@
 			files = (
 				ACE90DF91F88AEE100287505 /* classApiController.swift in Sources */,
 				8F1590CC1F8907A200CFD267 /* classApiControllerTopics.swift in Sources */,
+				8F1590D41F89463300CFD267 /* oneTopicTableViewCell.swift in Sources */,
 				8F1590D01F89133700CFD267 /* classApiControllerRequests.swift in Sources */,
 				ACE90DFD1F88B08B00287505 /* credentialsStruct.swift in Sources */,
 				ACE90E011F89128200287505 /* topicViewCell.swift in Sources */,

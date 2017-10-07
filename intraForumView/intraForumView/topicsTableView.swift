@@ -34,6 +34,7 @@ class topicsTableView: UITableViewController, API42Delegate {
     func requestSuccess(data: Any?)
     {
         print("get topics with success")
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         if let topics = data as? [Topic]
         {
             self.topics.removeAll()
@@ -58,6 +59,7 @@ class topicsTableView: UITableViewController, API42Delegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
     /* navigation */
@@ -68,7 +70,7 @@ class topicsTableView: UITableViewController, API42Delegate {
             {
                 if let dest = segue.destination as? oneTopicTableView {
                     print("coucou")
-                    dest.apiController = APIControllerMessages(topic: origin_cell.topic!, controller: apiController!)
+                    dest.apiController = APIControllerMessages(message_id: origin_cell.topic!.id, is_topic: true, controller: apiController!)
                 }
             }
         }

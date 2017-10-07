@@ -61,7 +61,7 @@ class APIControllerTopics : APIControllerRequests
                 var title = ""
                 var text = ""
                 var author = ""
-                var date = ""
+                var date:Date = Date()
                 var message_id:UInt = 0
                     
                 if let topic = rawTopic as? NSDictionary
@@ -83,8 +83,10 @@ class APIControllerTopics : APIControllerRequests
                     }
                     /* date */
                     if let get_date = topic["created_at"] as? String {
-                        date = get_date // TEMP : to convert to date
-                        _ = date // TEMP for warning...
+                        let formatter = ISO8601DateFormatter()
+                        if let convert_date = formatter.date(from: get_date) {
+                            date = convert_date
+                        }
                     }
                     /* text and message id */
                     if let get_message = topic["message"] as? NSDictionary {
@@ -100,7 +102,7 @@ class APIControllerTopics : APIControllerRequests
                         }
                     }
                 }
-                return Topic(id: id, title: title, text: text, author: author, date: Date(), message_id: message_id) // DATE TEMP
+                return Topic(id: id, title: title, text: text, author: author, date: date, message_id: message_id) // DATE TEMP
             }
         return topics
     }

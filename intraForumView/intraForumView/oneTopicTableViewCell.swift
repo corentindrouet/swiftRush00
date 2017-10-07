@@ -13,6 +13,7 @@ class oneTopicTableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var isResponsesLabel: UILabel!
     
     var message:Response? {
         didSet {
