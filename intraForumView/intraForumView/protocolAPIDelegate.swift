@@ -9,5 +9,5 @@
 import Foundation
 
 protocol API42Delegate: NSObjectProtocol {
-    func treatTopic(str: String)
+    func requestSuccess(data: Any?)
 }

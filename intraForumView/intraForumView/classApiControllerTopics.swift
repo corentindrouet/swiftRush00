@@ -10,41 +10,20 @@ import Foundation
 
 class APIControllerTopics : APIControllerRequests
 {
-    weak var delegateTopicTable: topicsTableView?
-    
     func getTopics()
     {
         if let request = self.getRequestForUrl(url: "/topics", httpMethod: "GET")
         {
-            print("0")
             let task = URLSession.shared.dataTask(with: request)
             {
                 (data, response, error) in
-                if let err = error {
-                    print(err)
-//                    self.delegate?.getTopicsError(error: err)
-                }
-                else
+                if let response: NSArray = self.parseRequestToArray(data: data, response: response, error: error)
                 {
-                    print("1")
-                    if let d = data
+                    if let topics = self.parseTopics(data: response)
                     {
-                        do
-                        {
-                            if let response: NSArray = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSArray
-                            {
-                                if let topics = self.parseTopics(data: response)
-                                {
-                                    // self.delegate?.getTopics()
-                                    print(topics)
-                                    self.delegateTopicTable?.updateTopics(newTopics: topics)
-                                }
-                            }
-                        }
-                        catch (let err)
-                        {
-                            print (err)
-                            // self.delegate?.getTopicsError(error: err)
+                        //print(topics)
+                        DispatchQueue.main.async {
+                            self.delegate?.requestSuccess(data: topics)
                         }
                     }
                 }

@@ -33,7 +33,7 @@ class APIController {
                         if let newToken = dic["access_token"] as? String {
                             self.token = "Bearer " + newToken
                             DispatchQueue.main.async {
-                                self.delegate?.treatTopic(str: self.token!)
+                                self.delegate?.requestSuccess(data: self.token!)
                             }
                         }
                     }

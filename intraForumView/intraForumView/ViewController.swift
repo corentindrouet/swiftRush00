@@ -18,15 +18,11 @@ class ViewController: UIViewController, API42Delegate, UIWebViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    func treatTopic(str: String) {
+    func requestSuccess(data: Any?) {
+        print("login succeed")
         performSegue(withIdentifier: "segueToTopics", sender: nil)
     }
-    
+
     @IBOutlet weak var webView: UIWebView! {
         didSet {
             webView.loadRequest(URLRequest(url: URL(string: ("https://api.intra.42.fr/oauth/authorize?client_id=" + (self.credentials.UID!) + "&redirect_uri=http%3A%2F%2Fapi.intra.42.fr&response_type=code"))!))

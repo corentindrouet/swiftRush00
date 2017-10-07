@@ -17,7 +17,6 @@ class topicViewCell: UITableViewCell {
     
     var topic: Topic? {
         didSet {
-            print("CECI EST UNE CELLULE")
             if let currentTopic = topic {
                 let format = DateFormatter()
                 format.dateFormat = "yyyy MM dd HH:mm:ss"

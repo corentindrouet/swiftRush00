@@ -76,20 +76,20 @@
 			children = (
 				ACE90DE61F88ACE900287505 /* AppDelegate.swift */,
 				ACE90DE81F88ACE900287505 /* ViewController.swift */,
+				ACE90E001F89128200287505 /* topicViewCell.swift */,
+				ACE90DFE1F8902AB00287505 /* topicsTableView.swift */,
 				ACE90DEA1F88ACE900287505 /* Main.storyboard */,
 				ACE90DED1F88ACE900287505 /* Assets.xcassets */,
 				ACE90DEF1F88ACE900287505 /* LaunchScreen.storyboard */,
 				ACE90DF21F88ACE900287505 /* Info.plist */,
-				ACE90DF81F88AEE100287505 /* classApiController.swift */,
-				ACE90DFA1F88AF2500287505 /* protocolAPIDelegate.swift */,
 				ACE90DFC1F88B08B00287505 /* credentialsStruct.swift */,
+				ACE90DFA1F88AF2500287505 /* protocolAPIDelegate.swift */,
+				ACE90DF81F88AEE100287505 /* classApiController.swift */,
+				8F1590CF1F89133700CFD267 /* classApiControllerRequests.swift */,
 				8F1590C71F8907A200CFD267 /* classApiControllerMessages.swift */,
 				8F1590C81F8907A200CFD267 /* classApiControllerTopics.swift */,
 				8F1590C91F8907A200CFD267 /* classResponse.swift */,
 				8F1590CA1F8907A200CFD267 /* classTopic.swift */,
-				8F1590CF1F89133700CFD267 /* classApiControllerRequests.swift */,
-				ACE90DFE1F8902AB00287505 /* topicsTableView.swift */,
-				ACE90E001F89128200287505 /* topicViewCell.swift */,
 			);
 			path = intraForumView;
 			sourceTree = "<group>";

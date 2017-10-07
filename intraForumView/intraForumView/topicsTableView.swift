@@ -8,12 +8,13 @@
 
 import UIKit
 
-class topicsTableView: UITableViewController {
+class topicsTableView: UITableViewController, API42Delegate {
     
     @IBOutlet var topicTableView: UITableView!
+    
     var apiController: APIControllerTopics? {
         didSet {
-            apiController?.delegateTopicTable = self
+            apiController?.delegate = self
             apiController?.getTopics()
             print("OUI")
         }
@@ -22,7 +23,7 @@ class topicsTableView: UITableViewController {
     var topicController: APIControllerTopics? {
         didSet {
             if let controller = topicController {
-                controller.delegateTopicTable = self
+                controller.delegate = self
             }
         }
     }
@@ -31,20 +32,15 @@ class topicsTableView: UITableViewController {
         super.viewDidLoad()
     }
     
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-    func updateTopics(newTopics: [Topic]) {
-        print("UPDATING...")
-        self.topics.removeAll()
-        //self.topics = newTopics
-        self.topics = [Topic](newTopics)
-        print(self.topics.count)
-        topicTableView.reloadData()
+    func requestSuccess(data: Any?)
+    {
+        print("get topics with success")
+        if let topics = data as? [Topic]
+        {
+            self.topics.removeAll()
+            self.topics = topics
+            topicTableView.reloadData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
