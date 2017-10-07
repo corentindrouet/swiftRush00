@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, API42Delegate, UIWebViewDelegate {
-    var apiController: APIControllerTopics?
+    var apiController: APIController?
     
     let credentials: credentialsStruct = credentialsStruct(UID: "b1b3251e18eee31db2b2f74b4a28b012e16e7da61e3bafa1f772a7874306dec1", Secret: "4e76a07ce47c3928b4e92940d58ab7994d3bcb58143db5e6094919051cc98f7c")
     
@@ -45,7 +45,7 @@ class ViewController: UIViewController, API42Delegate, UIWebViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToTopics" {
             if let dest = segue.destination as? topicsTableView {
-                dest.apiController = apiController
+                dest.apiController = APIControllerTopics(controller: apiController!)
             }
         }
     }

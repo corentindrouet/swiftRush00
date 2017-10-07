@@ -12,7 +12,7 @@ class oneTopicTableViewCell: UITableViewCell {
 
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
     
     var message:Response? {
         didSet {
@@ -21,7 +21,7 @@ class oneTopicTableViewCell: UITableViewCell {
                 format.dateFormat = "yyyy MM dd HH:mm:ss"
                 
                 self.authorLabel.text = msg.author
-                self.textLabel.text = msg.text
+                self.contentLabel.text = msg.text
                 self.dateLabel.text = format.string(from: msg.date)
             }
         }

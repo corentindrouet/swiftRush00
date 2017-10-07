@@ -67,7 +67,8 @@ class topicsTableView: UITableViewController, API42Delegate {
             if let origin_cell = sender as? topicViewCell
             {
                 if let dest = segue.destination as? oneTopicTableView {
-                    dest.topic = origin_cell.topic
+                    print("coucou")
+                    dest.apiController = APIControllerMessages(topic: origin_cell.topic!, controller: apiController!)
                 }
             }
         }

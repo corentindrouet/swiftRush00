@@ -9,14 +9,20 @@
 import UIKit
 
 class oneTopicTableView: UITableViewController, API42Delegate {
-
-    var topic: Topic? {
+    
+    @IBOutlet var messagesTableView: UITableView!
+    
+    
+    var apiController: APIControllerMessages? {
         didSet {
-            if let cur_topic = topic {
-                self.title = cur_topic.title
+            if let apiCtrl = apiController {
+                apiCtrl.delegate = self
+                apiCtrl.getMessages()
             }
         }
     }
+
+    var messages: [Response] = [Response]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +30,23 @@ class oneTopicTableView: UITableViewController, API42Delegate {
 
     func requestSuccess(data: Any?) {
         print("request success")
+        if let messages = data as? [Response] {
+            self.messages = messages
+        }
+        messagesTableView.reloadData()
     }
     
     /* table View */
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return messages.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! oneTopicTableViewCell
 
-        // Configure the cell...
+        /* le premier message semble toujours etre le topic donc pas de cas particulier */
+        cell.message = messages[indexPath.row]
 
         return cell
     }

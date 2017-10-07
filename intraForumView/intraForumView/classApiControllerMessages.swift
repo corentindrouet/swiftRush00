@@ -18,6 +18,12 @@ class APIControllerMessages : APIControllerRequests
         super.init(newDelegate: newDelegate, newCredentials: newCredentials, code: code)
     }
     
+    init(topic: Topic, controller: APIController)
+    {
+        self.topic = topic
+        super.init(controller: controller)
+    }
+    
     func getMessages()
     {
         if let request = self.getRequestForUrl(url: "/topics/" + String(topic.id) + "/messages", httpMethod: "GET")
@@ -28,7 +34,9 @@ class APIControllerMessages : APIControllerRequests
                 if let response: NSArray = self.parseRequestToArray(data: data, response: response, error: error)
                 {
                     let messages = self.parseMessages(data: response)
-                    // self.delegate?.getMessages()
+                    DispatchQueue.main.async {
+                        self.delegate?.requestSuccess(data: messages)
+                    }
                     print(messages)
                 }
             }

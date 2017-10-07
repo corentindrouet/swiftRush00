@@ -44,4 +44,12 @@ class APIController {
         }
         task.resume()
     }
+    
+    init(controller: APIController)
+    {
+        self.delegate = controller.delegate
+        self.token = controller.token
+        self.credentials = controller.credentials
+    }
+    
 }

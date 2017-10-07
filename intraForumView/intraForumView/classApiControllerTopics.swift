@@ -10,6 +10,7 @@ import Foundation
 
 class APIControllerTopics : APIControllerRequests
 {
+    
     func getTopics()
     {
         if let request = self.getRequestForUrl(url: "/topics", httpMethod: "GET")
@@ -19,12 +20,10 @@ class APIControllerTopics : APIControllerRequests
                 (data, response, error) in
                 if let response: NSArray = self.parseRequestToArray(data: data, response: response, error: error)
                 {
-                    if let topics = self.parseTopics(data: response)
-                    {
-                        //print(topics)
-                        DispatchQueue.main.async {
-                            self.delegate?.requestSuccess(data: topics)
-                        }
+                    let topics = self.parseTopics(data: response)
+                    //print(topics)
+                    DispatchQueue.main.async {
+                        self.delegate?.requestSuccess(data: topics)
                     }
                 }
             }
@@ -53,7 +52,7 @@ class APIControllerTopics : APIControllerRequests
     //     },
     // }
 
-    private func parseTopics(data: NSArray) -> [Topic]?
+    private func parseTopics(data: NSArray) -> [Topic]
     {
         let topics:[Topic] = data.map
             {
@@ -103,6 +102,6 @@ class APIControllerTopics : APIControllerRequests
                 }
                 return Topic(id: id, title: title, text: text, author: author, date: Date(), message_id: message_id) // DATE TEMP
             }
-            return topics
+        return topics
     }
 }

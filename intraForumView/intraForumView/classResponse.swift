@@ -23,4 +23,6 @@ class Response : NSObject
         self.date = date
         self.responses = responses
     }
+    
+    override var description: String { return ("[\(id)] by \(author) :\n\(text)\n-----------------------------------------------------------\n") }
 }
