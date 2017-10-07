@@ -25,7 +25,6 @@ class APIControllerTopics : APIControllerRequests
                 {
                     if let d = data
                     {
-                        print(d)
                         do
                         {
                             if let response: NSArray = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSArray

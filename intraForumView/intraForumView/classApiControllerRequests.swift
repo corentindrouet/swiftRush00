@@ -26,5 +26,38 @@ class APIControllerRequests : APIController
         }
         return (request)
     }
+    
+    /*
+    ** get the result of a task and try to return the data as an array
+    */
+    func parseRequestToArray(data: Data?, response: URLResponse?, error: Error?) -> NSArray?
+    {
+        if let err = error {
+            print (err)
+//          self.delegate.getMessagesError(err)
+        }
+        else
+        {
+            if let d = data
+            {
+                print ("data: \(d)")
+                do
+                {
+                    if let response: NSArray = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSArray
+                    {
+                        print ("get response as array")
+                        return (response)
+                    }
+                }
+                catch (let err)
+                {
+                    print (err)
+//                  self.delegate?.getMessagesError()
+                }
+                
+            }
+        }
+        return (nil)
+    }
 }
 

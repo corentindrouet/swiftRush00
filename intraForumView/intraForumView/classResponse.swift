@@ -12,14 +12,14 @@ class Response : NSObject
 {
     let id: UInt
     let text: String
-    let auteur: String
-    let date: String
+    let author: String
+    let date: Date
     let responses:[Response]?
     
-    init(id: UInt, text: String, auteur: String, date: String, responses: [Response]?) {
+    init(id: UInt, text: String, author: String, date: Date, responses: [Response]?) {
         self.id = id
         self.text = text
-        self.auteur = auteur
+        self.author = author
         self.date = date
         self.responses = responses
     }
