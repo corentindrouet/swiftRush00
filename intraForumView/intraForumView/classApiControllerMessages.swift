@@ -12,9 +12,9 @@ class APIControllerMessages : APIControllerRequests
 {
     let topic: Topic
     
-    init(topic: Topic, newDelegate: API42Delegate?, newCredentials: credentialsStruct) {
+    init(topic: Topic, newDelegate: API42Delegate?, newCredentials: credentialsStruct, code: String) {
         self.topic = topic
-        super.init(newDelegate: newDelegate, newCredentials: newCredentials)
+        super.init(newDelegate: newDelegate, newCredentials: newCredentials, code: code)
     }
     
     func getMessages()
