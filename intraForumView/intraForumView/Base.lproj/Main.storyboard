@@ -112,7 +112,7 @@
                                     <outlet property="NameLabel" destination="KNp-ua-Uol" id="www-C2-uAo"/>
                                     <outlet property="dateLabel" destination="xUh-gC-Yhz" id="pEr-tS-018"/>
                                     <outlet property="descriptionLabel" destination="uDR-05-eqV" id="UyU-hW-gct"/>
-                                    <segue destination="d8Y-aX-cB6" kind="show" id="33Y-JJ-vju"/>
+                                    <segue destination="d8Y-aX-cB6" kind="show" identifier="segueToOneTopic" id="33Y-JJ-vju"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -158,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="4672.8000000000002" y="-282.00899550224892"/>
         </scene>
-        <!--Table View Controller-->
+        <!--One Topic Table View-->
         <scene sceneID="Gga-5I-Hq9">
             <objects>
-                <tableViewController id="d8Y-aX-cB6" sceneMemberID="viewController">
+                <tableViewController id="d8Y-aX-cB6" customClass="oneTopicTableView" customModule="intraForumView" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xe8-Q1-9X5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

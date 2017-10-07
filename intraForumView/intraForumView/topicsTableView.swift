@@ -14,9 +14,10 @@ class topicsTableView: UITableViewController, API42Delegate {
     
     var apiController: APIControllerTopics? {
         didSet {
-            apiController?.delegate = self
-            apiController?.getTopics()
-            print("OUI")
+            if let apiCtrl = apiController {
+                apiCtrl.delegate = self
+                apiCtrl.getTopics()
+            }
         }
     }
     
@@ -27,11 +28,9 @@ class topicsTableView: UITableViewController, API42Delegate {
             }
         }
     }
-    var topics: [Topic] = []
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
+    var topics: [Topic] = [Topic]()
+
     func requestSuccess(data: Any?)
     {
         print("get topics with success")
@@ -43,6 +42,8 @@ class topicsTableView: UITableViewController, API42Delegate {
         }
     }
     
+    /* table view */
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return topics.count
     }
@@ -53,4 +54,25 @@ class topicsTableView: UITableViewController, API42Delegate {
         cell.topic = tmp
         return cell
     }
+    
+    /* on load */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    /* navigation */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToOneTopic"
+        {
+            if let origin_cell = sender as? topicViewCell
+            {
+                print (origin_cell.topic!)
+                if let dest = segue.destination as? oneTopicTableView {
+                    dest.topic = origin_cell.topic
+                }
+            }
+        }
+    }
+    
 }
