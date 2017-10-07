@@ -10,10 +10,13 @@ import Foundation
 
 class APIControllerTopics : APIControllerRequests
 {
+    weak var delegateTopicTable: topicsTableView?
+    
     func getTopics()
     {
         if let request = self.getRequestForUrl(url: "/topics", httpMethod: "GET")
         {
+            print("0")
             let task = URLSession.shared.dataTask(with: request)
             {
                 (data, response, error) in
@@ -23,6 +26,7 @@ class APIControllerTopics : APIControllerRequests
                 }
                 else
                 {
+                    print("1")
                     if let d = data
                     {
                         do
@@ -33,6 +37,7 @@ class APIControllerTopics : APIControllerRequests
                                 {
                                     // self.delegate?.getTopics()
                                     print(topics)
+                                    self.delegateTopicTable?.updateTopics(newTopics: topics)
                                 }
                             }
                         }

@@ -24,7 +24,7 @@ class ViewController: UIViewController, API42Delegate, UIWebViewDelegate {
     }
 
     func treatTopic(str: String) {
-        apiController?.getTopics()
+        performSegue(withIdentifier: "segueToTopics", sender: nil)
     }
     
     @IBOutlet weak var webView: UIWebView! {
@@ -46,5 +46,12 @@ class ViewController: UIViewController, API42Delegate, UIWebViewDelegate {
         return true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToTopics" {
+            if let dest = segue.destination as? topicsTableView {
+                dest.apiController = apiController
+            }
+        }
+    }
 }
 

@@ -16,7 +16,6 @@ class APIController {
     init(newDelegate: API42Delegate?, newCredentials: credentialsStruct, code: String) {
         self.delegate = newDelegate
         self.credentials = newCredentials
-        //let options = ("code=" + code + "&client_id=" + (self.credentials?.UID!)! + "&client_secret=" + (self.credentials?.Secret!)! + "&grant_type=authorization_code").data(using: String.Encoding.utf8)
         let options = ("grant_type=authorization_code&client_id=" + (self.credentials?.UID!)! + "&client_secret=" + (self.credentials?.Secret!)! + "&code=" + code + "&redirect_uri=http%3A%2F%2Fapi.intra.42.fr").data(using: String.Encoding.utf8)
         let url = URL(string: "https://api.intra.42.fr/oauth/token")
         var request = URLRequest(url: url!)

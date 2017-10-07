@@ -13,8 +13,11 @@ class topicViewCell: UITableViewCell {
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    
     var topic: Topic? {
         didSet {
+            print("CECI EST UNE CELLULE")
             if let currentTopic = topic {
                 let format = DateFormatter()
                 format.dateFormat = "yyyy MM dd HH:mm:ss"
