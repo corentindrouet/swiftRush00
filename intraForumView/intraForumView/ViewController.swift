@@ -26,7 +26,7 @@ class ViewController: UIViewController, API42Delegate, UIWebViewDelegate {
     }
 
     func treatTopic(str: String) {
-        
+        apiController?.getTopics()
     }
     
     @IBOutlet weak var webView: UIWebView! {
@@ -43,7 +43,6 @@ class ViewController: UIViewController, API42Delegate, UIWebViewDelegate {
                 print(code)
                 webView.isHidden = true
                 apiController = APIControllerTopics(newDelegate: self, newCredentials: credentials, code: code[1])
-                apiController?.getTopics()
             }
         }
         return true

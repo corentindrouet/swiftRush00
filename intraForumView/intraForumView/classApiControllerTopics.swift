@@ -10,7 +10,7 @@ import Foundation
 
 class APIControllerRequests : APIController
 {
-    let basic_url = "https://api.intra.42/v2"
+    let basic_url = "https://api.intra.42.fr/v2"
     
     func getRequestForUrl(url: String, httpMethod: String) -> URLRequest?
     {
@@ -20,8 +20,9 @@ class APIControllerRequests : APIController
         {
             request = URLRequest(url: req_url)
             request!.httpMethod = httpMethod
-            request!.setValue("application/x-www-form-urlencoded;charset=UTF-8", forHTTPHeaderField: "Content-Type") // ?
-            request!.setValue(self.token, forHTTPHeaderField: "Authorization")
+            print(self.token!)
+            request!.setValue(self.token!, forHTTPHeaderField: "Authorization")
+            request!.setValue("application/x-www-form-urlencoded;charset=UTF-8", forHTTPHeaderField: "Content-Type")
         }
         return (request)
     }
@@ -31,25 +32,29 @@ class APIControllerTopics : APIControllerRequests
 {
     func getTopics()
     {
-        if let request = getRequestForUrl(url: "/topics"/*?filter=created_at"*/, httpMethod: "GET")
+        print("coucou test")
+        if let request = self.getRequestForUrl(url: "/topics", httpMethod: "GET")
         {
+            print("got request")
             let task = URLSession.shared.dataTask(with: request)
             {
                 (data, response, error) in
+                print("in callback")
                 if let err = error {
                     print(err)
 //                    self.delegate?.getTopicsError(error: err)
                 }
                 else
                 {
+                    print ("response : ")
+                    print(response!)
                     if let d = data
                     {
                         print(d)
                         do
                         {
-                            if let response: NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
+                            if let response: NSArray = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSArray
                             {
-                                print(response)
                                 if let topics = self.parseTopics(data: response)
                                 {
                                     // self.delegate?.getTopics()
@@ -90,11 +95,11 @@ class APIControllerTopics : APIControllerRequests
     //     },
     // }
 
-    private func parseTopics(data: NSDictionary) -> [Topic]?
+    private func parseTopics(data: NSArray) -> [Topic]?
     {
-        if let rawTopics = data["topics"] as? NSArray //temp
-        {
-            let topics:[Topic] = rawTopics.map
+        //if let rawTopics = data["topics"] as? NSArray //temp
+        //{
+            let topics:[Topic] = data.map
                 {
                     (rawTopic) in
                     var title = ""
@@ -105,6 +110,7 @@ class APIControllerTopics : APIControllerRequests
                     
                     if let topic = rawTopic as? NSDictionary
                     {
+                        print(topic)
                         /* title */
                         if let get_title = topic["name"] as? String {
                             title = get_title
@@ -137,7 +143,7 @@ class APIControllerTopics : APIControllerRequests
                     return Topic(title: title, text: text, author: author, date: Date(), message_id: message_id) // DATE TEMP
                 }
                 return topics
-        }
-        return [Topic]()
+        //}
+        //return [Topic]()
     }
 }

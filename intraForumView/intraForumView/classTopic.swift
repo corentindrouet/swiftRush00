@@ -24,4 +24,6 @@ class Topic : NSObject {
         self.date = date
         self.message_id = message_id
     }
+    
+    override var description: String { return ("\"\(title)\" by \(author) : \(text)") }
 }
