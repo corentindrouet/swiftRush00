@@ -33,7 +33,6 @@ class oneTopicTableView: UITableViewController, API42Delegate {
         return 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
@@ -41,7 +40,15 @@ class oneTopicTableView: UITableViewController, API42Delegate {
 
         return cell
     }
-    */
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40.0
+    }
 
     /*
      In a storyboard-based application, you will often want to do a little preparation before navigation

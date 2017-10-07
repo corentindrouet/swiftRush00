@@ -10,7 +10,8 @@ import UIKit
 
 class topicViewCell: UITableViewCell {
 
-    @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
@@ -20,9 +21,11 @@ class topicViewCell: UITableViewCell {
             if let currentTopic = topic {
                 let format = DateFormatter()
                 format.dateFormat = "yyyy MM dd HH:mm:ss"
-                NameLabel.text = currentTopic.author
-                dateLabel.text = format.string(from: currentTopic.date)
+                
+                titleLabel.text = currentTopic.title
+                authorLabel.text = "By " + currentTopic.author
                 descriptionLabel.text = currentTopic.text
+                dateLabel.text = format.string(from: currentTopic.date)
             }
         }
     }

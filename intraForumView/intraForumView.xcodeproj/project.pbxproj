@@ -12,6 +12,7 @@
 		8F1590CD1F8907A200CFD267 /* classResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590C91F8907A200CFD267 /* classResponse.swift */; };
 		8F1590CE1F8907A200CFD267 /* classTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590CA1F8907A200CFD267 /* classTopic.swift */; };
 		8F1590D01F89133700CFD267 /* classApiControllerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590CF1F89133700CFD267 /* classApiControllerRequests.swift */; };
+		8F1590D21F893A8700CFD267 /* oneTopicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590D11F893A8700CFD267 /* oneTopicTableView.swift */; };
 		ACE90DE71F88ACE900287505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE90DE61F88ACE900287505 /* AppDelegate.swift */; };
 		ACE90DE91F88ACE900287505 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE90DE81F88ACE900287505 /* ViewController.swift */; };
 		ACE90DEC1F88ACE900287505 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE90DEA1F88ACE900287505 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		8F1590C91F8907A200CFD267 /* classResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classResponse.swift; sourceTree = "<group>"; };
 		8F1590CA1F8907A200CFD267 /* classTopic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classTopic.swift; sourceTree = "<group>"; };
 		8F1590CF1F89133700CFD267 /* classApiControllerRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classApiControllerRequests.swift; sourceTree = "<group>"; };
+		8F1590D11F893A8700CFD267 /* oneTopicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneTopicTableView.swift; sourceTree = "<group>"; };
 		ACE90DE31F88ACE900287505 /* intraForumView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intraForumView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE90DE61F88ACE900287505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACE90DE81F88ACE900287505 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				ACE90DE81F88ACE900287505 /* ViewController.swift */,
 				ACE90E001F89128200287505 /* topicViewCell.swift */,
 				ACE90DFE1F8902AB00287505 /* topicsTableView.swift */,
+				8F1590D11F893A8700CFD267 /* oneTopicTableView.swift */,
 				ACE90DEA1F88ACE900287505 /* Main.storyboard */,
 				ACE90DED1F88ACE900287505 /* Assets.xcassets */,
 				ACE90DEF1F88ACE900287505 /* LaunchScreen.storyboard */,
@@ -178,6 +181,7 @@
 				8F1590CE1F8907A200CFD267 /* classTopic.swift in Sources */,
 				8F1590CB1F8907A200CFD267 /* classApiControllerMessages.swift in Sources */,
 				ACE90DFB1F88AF2500287505 /* protocolAPIDelegate.swift in Sources */,
+				8F1590D21F893A8700CFD267 /* oneTopicTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

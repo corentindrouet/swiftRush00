@@ -50,8 +50,7 @@ class topicsTableView: UITableViewController, API42Delegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell") as! topicViewCell
-        let tmp = topics[indexPath.row]
-        cell.topic = tmp
+        cell.topic = topics[indexPath.row]
         return cell
     }
     
@@ -67,7 +66,6 @@ class topicsTableView: UITableViewController, API42Delegate {
         {
             if let origin_cell = sender as? topicViewCell
             {
-                print (origin_cell.topic!)
                 if let dest = segue.destination as? oneTopicTableView {
                     dest.topic = origin_cell.topic
                 }
