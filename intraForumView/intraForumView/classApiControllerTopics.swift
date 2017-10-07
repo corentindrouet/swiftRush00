@@ -8,46 +8,21 @@
 
 import Foundation
 
-class APIControllerRequests : APIController
-{
-    let basic_url = "https://api.intra.42.fr/v2"
-    
-    func getRequestForUrl(url: String, httpMethod: String) -> URLRequest?
-    {
-        var request: URLRequest? = nil
-        
-        if let req_url = URL(string: self.basic_url + url)
-        {
-            request = URLRequest(url: req_url)
-            request!.httpMethod = httpMethod
-            print(self.token!)
-            request!.setValue(self.token!, forHTTPHeaderField: "Authorization")
-            request!.setValue("application/x-www-form-urlencoded;charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        }
-        return (request)
-    }
-}
-
 class APIControllerTopics : APIControllerRequests
 {
     func getTopics()
     {
-        print("coucou test")
         if let request = self.getRequestForUrl(url: "/topics", httpMethod: "GET")
         {
-            print("got request")
             let task = URLSession.shared.dataTask(with: request)
             {
                 (data, response, error) in
-                print("in callback")
                 if let err = error {
                     print(err)
 //                    self.delegate?.getTopicsError(error: err)
                 }
                 else
                 {
-                    print ("response : ")
-                    print(response!)
                     if let d = data
                     {
                         print(d)
@@ -97,53 +72,54 @@ class APIControllerTopics : APIControllerRequests
 
     private func parseTopics(data: NSArray) -> [Topic]?
     {
-        //if let rawTopics = data["topics"] as? NSArray //temp
-        //{
-            let topics:[Topic] = data.map
-                {
-                    (rawTopic) in
-                    var title = ""
-                    var text = ""
-                    var author = ""
-                    var date = ""
-                    var message_id:UInt = 0
+        let topics:[Topic] = data.map
+            {
+                (rawTopic) in
+                var id:UInt = 0
+                var title = ""
+                var text = ""
+                var author = ""
+                var date = ""
+                var message_id:UInt = 0
                     
-                    if let topic = rawTopic as? NSDictionary
-                    {
-                        print(topic)
-                        /* title */
-                        if let get_title = topic["name"] as? String {
-                            title = get_title
+                if let topic = rawTopic as? NSDictionary
+                {
+                    print(topic)
+                    /* id */
+                    if let get_id = topic["id"] as? UInt {
+                        id = get_id
+                    }
+                    /* title */
+                    if let get_title = topic["name"] as? String {
+                        title = get_title
+                    }
+                    /* author */
+                    if let get_author = topic["author"] as? NSDictionary {
+                        if let get_author_name = get_author["login"] as? String {
+                            author = get_author_name
                         }
-                        /* author */
-                        if let get_author = topic["author"] as? NSDictionary {
-                            if let get_author_name = get_author["login"] as? String {
-                                author = get_author_name
-                            }
+                    }
+                    /* date */
+                    if let get_date = topic["created_at"] as? String {
+                        date = get_date // TEMP : to convert to date
+                        _ = date // TEMP for warning...
+                    }
+                    /* text and message id */
+                    if let get_message = topic["message"] as? NSDictionary {
+                        /* message_id */
+                        if let get_id = get_message["id"] as? UInt {
+                            message_id = get_id
                         }
-                        /* date */
-                        if let get_date = topic["created_at"] as? String {
-                            date = get_date // TEMP : to convert to date
-                            _ = date // TEMP for warning...
-                        }
-                        /* text and message id */
-                        if let get_message = topic["message"] as? NSDictionary {
-                            /* message_id */
-                            if let get_id = get_message["id"] as? UInt {
-                                message_id = get_id
-                            }
-                            /* text */
-                            if let get_content = get_message["content"] as? NSDictionary {
-                                if let get_content_markdown = get_content["markdown"] as? String {
-                                    text = get_content_markdown
-                                }
+                        /* text */
+                        if let get_content = get_message["content"] as? NSDictionary {
+                            if let get_content_markdown = get_content["markdown"] as? String {
+                                text = get_content_markdown
                             }
                         }
                     }
-                    return Topic(title: title, text: text, author: author, date: Date(), message_id: message_id) // DATE TEMP
                 }
-                return topics
-        //}
-        //return [Topic]()
+                return Topic(id: id, title: title, text: text, author: author, date: Date(), message_id: message_id) // DATE TEMP
+            }
+            return topics
     }
 }

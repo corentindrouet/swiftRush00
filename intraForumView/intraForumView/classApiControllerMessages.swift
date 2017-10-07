@@ -12,14 +12,18 @@ class APIControllerMessages : APIControllerRequests
 {
     let topic: Topic
     
-    init(topic: Topic, newDelegate: API42Delegate?, newCredentials: credentialsStruct, code: String) {
+    init(topic: Topic, newDelegate: API42Delegate?, newCredentials: credentialsStruct, code: String)
+    {
         self.topic = topic
         super.init(newDelegate: newDelegate, newCredentials: newCredentials, code: code)
     }
     
     func getMessages()
     {
-        
+       // if let request = self.getRequestForUrl(url: "/topics/" + String(topic.id) + "/messages", httpMethod: <#T##String#>)
+       // {
+            
+       // }
     }
     
     func getMessagesResponses()

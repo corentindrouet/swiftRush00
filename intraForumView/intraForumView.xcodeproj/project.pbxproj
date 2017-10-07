@@ -11,6 +11,7 @@
 		8F1590CC1F8907A200CFD267 /* classApiControllerTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590C81F8907A200CFD267 /* classApiControllerTopics.swift */; };
 		8F1590CD1F8907A200CFD267 /* classResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590C91F8907A200CFD267 /* classResponse.swift */; };
 		8F1590CE1F8907A200CFD267 /* classTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590CA1F8907A200CFD267 /* classTopic.swift */; };
+		8F1590D01F89133700CFD267 /* classApiControllerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590CF1F89133700CFD267 /* classApiControllerRequests.swift */; };
 		ACE90DE71F88ACE900287505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE90DE61F88ACE900287505 /* AppDelegate.swift */; };
 		ACE90DE91F88ACE900287505 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE90DE81F88ACE900287505 /* ViewController.swift */; };
 		ACE90DEC1F88ACE900287505 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE90DEA1F88ACE900287505 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		8F1590C81F8907A200CFD267 /* classApiControllerTopics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classApiControllerTopics.swift; sourceTree = "<group>"; };
 		8F1590C91F8907A200CFD267 /* classResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classResponse.swift; sourceTree = "<group>"; };
 		8F1590CA1F8907A200CFD267 /* classTopic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classTopic.swift; sourceTree = "<group>"; };
+		8F1590CF1F89133700CFD267 /* classApiControllerRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classApiControllerRequests.swift; sourceTree = "<group>"; };
 		ACE90DE31F88ACE900287505 /* intraForumView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intraForumView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE90DE61F88ACE900287505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACE90DE81F88ACE900287505 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				8F1590C81F8907A200CFD267 /* classApiControllerTopics.swift */,
 				8F1590C91F8907A200CFD267 /* classResponse.swift */,
 				8F1590CA1F8907A200CFD267 /* classTopic.swift */,
+				8F1590CF1F89133700CFD267 /* classApiControllerRequests.swift */,
 			);
 			path = intraForumView;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				ACE90DF91F88AEE100287505 /* classApiController.swift in Sources */,
 				8F1590CC1F8907A200CFD267 /* classApiControllerTopics.swift in Sources */,
+				8F1590D01F89133700CFD267 /* classApiControllerRequests.swift in Sources */,
 				ACE90DFD1F88B08B00287505 /* credentialsStruct.swift in Sources */,
 				8F1590CD1F8907A200CFD267 /* classResponse.swift in Sources */,
 				ACE90DE91F88ACE900287505 /* ViewController.swift in Sources */,
