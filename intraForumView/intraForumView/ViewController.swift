@@ -15,8 +15,6 @@ class ViewController: UIViewController, API42Delegate, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //ApiController = APIController(newDelegate: self, newCredentials: credentials)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

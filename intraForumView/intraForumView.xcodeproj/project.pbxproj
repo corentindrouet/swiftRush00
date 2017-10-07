@@ -20,6 +20,7 @@
 		ACE90DF91F88AEE100287505 /* classApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE90DF81F88AEE100287505 /* classApiController.swift */; };
 		ACE90DFB1F88AF2500287505 /* protocolAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE90DFA1F88AF2500287505 /* protocolAPIDelegate.swift */; };
 		ACE90DFD1F88B08B00287505 /* credentialsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE90DFC1F88B08B00287505 /* credentialsStruct.swift */; };
+		ACE90DFF1F8902AB00287505 /* topicsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE90DFE1F8902AB00287505 /* topicsTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		ACE90DF81F88AEE100287505 /* classApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classApiController.swift; sourceTree = "<group>"; };
 		ACE90DFA1F88AF2500287505 /* protocolAPIDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = protocolAPIDelegate.swift; sourceTree = "<group>"; };
 		ACE90DFC1F88B08B00287505 /* credentialsStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = credentialsStruct.swift; sourceTree = "<group>"; };
+		ACE90DFE1F8902AB00287505 /* topicsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topicsTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				8F1590C91F8907A200CFD267 /* classResponse.swift */,
 				8F1590CA1F8907A200CFD267 /* classTopic.swift */,
 				8F1590CF1F89133700CFD267 /* classApiControllerRequests.swift */,
+				ACE90DFE1F8902AB00287505 /* topicsTableView.swift */,
 			);
 			path = intraForumView;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				ACE90DFD1F88B08B00287505 /* credentialsStruct.swift in Sources */,
 				8F1590CD1F8907A200CFD267 /* classResponse.swift in Sources */,
 				ACE90DE91F88ACE900287505 /* ViewController.swift in Sources */,
+				ACE90DFF1F8902AB00287505 /* topicsTableView.swift in Sources */,
 				ACE90DE71F88ACE900287505 /* AppDelegate.swift in Sources */,
 				8F1590CE1F8907A200CFD267 /* classTopic.swift in Sources */,
 				8F1590CB1F8907A200CFD267 /* classApiControllerMessages.swift in Sources */,

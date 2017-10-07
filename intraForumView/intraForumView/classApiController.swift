@@ -45,35 +45,4 @@ class APIController {
         }
         task.resume()
     }
-    
-    func tryToConnect() {
-        if let validToken = self.token {
-            let url = URL(string: "https://signin.intra.42.fr/users/sign_in")
-            var request = URLRequest(url: url!)
-            request.httpMethod = "POST"
-            request.setValue("application/x-www-form-urlencoded;charset=UTF-8", forHTTPHeaderField: "Content-Type")
-            request.setValue("Bearer " + validToken, forHTTPHeaderField: "Authorization")
-            print("0")
-            let task = URLSession.shared.dataTask(with: request) {
-                (data, response, error) in
-                print("1")
-                print(response!)
-                if let err = error {
-                    print(err)
-                } else if let d = data {
-                    print("2")
-                    print(d)
-                    do {
-                        if let dic: NSArray = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSArray {
-                                print("3")
-                                print(dic)
-                        }
-                    } catch (let err) {
-                        print(err)
-                    }
-                }
-            }
-            task.resume()
-        }
-    }
 }
