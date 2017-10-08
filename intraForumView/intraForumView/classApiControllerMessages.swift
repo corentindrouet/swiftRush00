@@ -10,14 +10,14 @@ import Foundation
 
 class APIControllerMessages : APIControllerRequests
 {
-    let message_id: UInt
-    let is_topic: Bool
+    var message_id: UInt = 0
+    var is_topic: Bool = false
     
     init(message_id: UInt, is_topic: Bool, controller: APIController)
     {
+        super.init(controller: controller)
         self.message_id = message_id
         self.is_topic = is_topic
-        super.init(controller: controller)
     }
     
     func getMessages()
@@ -36,6 +36,54 @@ class APIControllerMessages : APIControllerRequests
                         self.delegate?.requestSuccess(data: messages)
                     }
                     print(messages)
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    func createMessage(text: String) {
+        var urlString: String
+        var parameters: [String:Any]
+        if is_topic {
+            urlString = "/topics/"
+            parameters = [
+                "topic_id": message_id,
+                "message": [
+                    "author_id": self.userId!,
+                    "content": text
+                ]
+            ]
+        } else {
+            urlString = "/messages/"
+            parameters = [
+                "message_id": message_id,
+                "message": [
+                    "author_id": self.userId!,
+                    "content": text
+                ]
+            ]
+        }
+        if var request = self.getRequestForUrl(url: urlString + String(message_id) + "/messages", httpMethod: "POST") {
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
+            let task = URLSession.shared.dataTask(with: request) {
+                (data, response, error) in
+                print(response!)
+                if let err = error {
+                    print(err)
+                } else {
+                    DispatchQueue.main.async {
+                        self.delegate?.requestSuccess(data: nil)
+                    } /*if let d = data {
+                     print(d)
+                     do {
+                     if let dic: NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
+                     print(dic)
+                     }
+                     } catch let err {
+                     print(err)
+                     }*/
                 }
             }
             task.resume()

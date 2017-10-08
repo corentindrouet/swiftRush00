@@ -32,7 +32,7 @@ class ViewController: UIViewController, API42Delegate, UIWebViewDelegate {
 
     @IBOutlet weak var webView: UIWebView! {
         didSet {
-            webView.loadRequest(URLRequest(url: URL(string: ("https://api.intra.42.fr/oauth/authorize?client_id=" + (self.credentials.UID!) + "&redirect_uri=http%3A%2F%2Fapi.intra.42.fr&response_type=code&scope=forum%20public"))!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0))
+            webView.loadRequest(URLRequest(url: URL(string: ("https://api.intra.42.fr/oauth/authorize?client_id=" + (self.credentials.UID!) + "&redirect_uri=http%3A%2F%2Fapi.intra.42.fr&response_type=code&scope=forum%20public"))!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData))
             print("STARTING")
         }
     }

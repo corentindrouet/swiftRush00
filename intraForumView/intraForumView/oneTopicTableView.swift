@@ -18,6 +18,7 @@ class oneTopicTableView: UITableViewController, API42Delegate {
                 apiCtrl.delegate = self
                 if (apiCtrl.is_topic == true) {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                    print(apiCtrl.message_id)
                     apiCtrl.getMessages()
                 }
             }
@@ -110,13 +111,24 @@ class oneTopicTableView: UITableViewController, API42Delegate {
                 if let original_cell = sender as? oneTopicTableViewCell {
                     // le message duquel on regarde les reponses n'est pas affiche
                     dest.messages = (original_cell.message?.responses)!
+                    //dest.apiController = self.apiController!
+                    //dest.apiController?.is_topic = false
+                    //dest.apiController?.message_id = (original_cell.message?.id)!
                     dest.apiController = APIControllerMessages(message_id: (original_cell.message?.id)!, is_topic: false, controller: apiController!)
                 }
+            }
+        } else if segue.identifier == "newMessageSegue" {
+            if let dest = segue.destination as? newMessageController {
+                dest.apiControllerMessage = self.apiController
             }
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-
-
+    
+    
+    @IBAction func unWindSegueNewMessage(segue: UIStoryboardSegue) {
+        //apiController?.getTopics()
+    }
+    
 }

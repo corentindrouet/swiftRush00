@@ -1,5 +1,5 @@
 //
-//  newTopicPageControllerViewController.swift
+//  newMessageController.swift
 //  intraForumView
 //
 //  Created by Corentin DROUET on 10/8/17.
@@ -8,27 +8,14 @@
 
 import UIKit
 
-class newTopicPageController: UIViewController, API42Delegate {
-    
-    var apiControllerTopic: APIControllerTopics? {
-        didSet {
-            apiControllerTopic?.delegate = self
-        }
-    }
+class newMessageController: UIViewController, API42Delegate {
 
-    @IBOutlet weak var topicTitleText: UITextView! {
+    var apiControllerMessage: APIControllerMessages? {
         didSet {
-            topicTitleText.layer.borderColor = UIColor.black.cgColor
-            topicTitleText.layer.borderWidth = 1.0
+            apiControllerMessage?.delegate = self
         }
     }
-    
-    @IBOutlet weak var topicContentText: UITextView! {
-        didSet {
-            topicContentText.layer.borderColor = UIColor.black.cgColor
-            topicContentText.layer.borderWidth = 1.0
-        }
-    }
+    @IBOutlet weak var newMessageText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,21 +29,17 @@ class newTopicPageController: UIViewController, API42Delegate {
     }
     
     func requestSuccess(data: Any?) {
-        print("ON PASS ICI")
-        apiControllerTopic?.getTopics()
-        performSegue(withIdentifier: "unWindSegueToTopic", sender: nil)
+        apiControllerMessage?.getMessages()
+        performSegue(withIdentifier: "newMessageSegue", sender: nil)
     }
     
     func requestFailed(error: Error){
         print(error)
     }
-    
-    @IBAction func addNewTopic(_ sender: Any) {
-        apiControllerTopic?.createTopic(title: self.topicTitleText.text!, text: self.topicContentText.text!)
+
+    @IBAction func AddMessage(_ sender: Any) {
+        apiControllerMessage?.createMessage(text: newMessageText.text)
     }
-    
-    
-    
     /*
     // MARK: - Navigation
 

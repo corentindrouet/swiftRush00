@@ -102,10 +102,10 @@ class topicsTableView: UITableViewController, API42Delegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToOneTopic"
         {
-            if let origin_cell = sender as? topicViewCell
+            if let origin_cell = (sender as? topicViewCell)
             {
                 if let dest = segue.destination as? oneTopicTableView {
-                    dest.apiController = APIControllerMessages(message_id: origin_cell.topic!.id, is_topic: true, controller: apiController!)
+                    dest.apiController = APIControllerMessages(message_id: origin_cell.topic!.id, is_topic: true, controller: self.apiController!)
                 }
             }
         } else if segue.identifier == "addTopicSegue" {

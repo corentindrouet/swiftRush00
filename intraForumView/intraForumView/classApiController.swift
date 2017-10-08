@@ -50,6 +50,7 @@ class APIController {
     {
         self.delegate = controller.delegate
         self.token = controller.token
+        self.userId = controller.userId
         self.credentials = controller.credentials
     }
     
