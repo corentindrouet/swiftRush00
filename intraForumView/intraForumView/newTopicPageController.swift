@@ -46,6 +46,10 @@ class newTopicPageController: UIViewController, API42Delegate {
         performSegue(withIdentifier: "unWindSegueToTopic", sender: nil)
     }
     
+    func requestFailed(error: Error){
+        print(error)
+    }
+    
     @IBAction func addNewTopic(_ sender: Any) {
         apiControllerTopic?.createTopic(title: self.topicTitleText.text!, text: self.topicContentText.text!)
     }
