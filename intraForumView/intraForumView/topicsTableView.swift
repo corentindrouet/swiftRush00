@@ -88,7 +88,14 @@ class topicsTableView: UITableViewController, API42Delegate {
                     dest.apiController = APIControllerMessages(message_id: origin_cell.topic!.id, is_topic: true, controller: apiController!)
                 }
             }
+        } else if segue.identifier == "addTopicSegue" {
+            if let dest = segue.destination as? newTopicPageController {
+                dest.apiControllerTopic = self.apiController
+            }
         }
     }
     
+    @IBAction func unWindSegueNewTopic(segue: UIStoryboardSegue) {
+        apiController?.getTopics()
+    }
 }

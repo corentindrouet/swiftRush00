@@ -72,7 +72,9 @@ class APIController {
                 do {
                     if let dic: NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
                         if let id = dic["id"] as? Int {
+                            print("USERID")
                             self.userId = id
+                            print(self.userId!)
                         }
                     }
                 } catch (let err) {

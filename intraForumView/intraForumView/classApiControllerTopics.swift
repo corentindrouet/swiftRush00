@@ -31,6 +31,56 @@ class APIControllerTopics : APIControllerRequests
         }
     }
     
+    func createTopic(title: String, text: String) {
+        if var request = self.getRequestForUrl(url: "/topics", httpMethod: "POST") {
+            let parameters: [String:Any] = [
+                "topic": [
+                    "author_id": self.userId!,
+                    "cursus_ids": [1],
+                    "kind": "normal",
+                    "language_id": 1,
+                    "name": title,
+                    "messages_attributes": [[
+                        "author_id": self.userId!,
+                        "content": text
+                    ]],
+                    "tag_ids": [8]
+                ]
+            ]
+            print(self.userId!)
+            print(self.token!)
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
+            /*do {
+                let data = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+                let json = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+                request.httpBody = json!.data(using: String.Encoding.utf8.rawValue)
+            } catch let err {
+                print(err)
+            }*/
+            let task = URLSession.shared.dataTask(with: request) {
+                (data, response, error) in
+                print(response!)
+                if let err = error {
+                    print(err)
+                } else {
+                DispatchQueue.main.async {
+                    self.delegate?.requestSuccess(data: nil)
+                } /*if let d = data {
+                    print(d)
+                    do {
+                        if let dic: NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
+                            print(dic)
+                        }
+                    } catch let err {
+                        print(err)
+                    }*/
+                }
+            }
+            task.resume()
+        }
+    }
+    
     /* private */
     
     // on topic array :

@@ -14,6 +14,7 @@
 		8F1590D01F89133700CFD267 /* classApiControllerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590CF1F89133700CFD267 /* classApiControllerRequests.swift */; };
 		8F1590D21F893A8700CFD267 /* oneTopicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590D11F893A8700CFD267 /* oneTopicTableView.swift */; };
 		8F1590D41F89463300CFD267 /* oneTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1590D31F89463300CFD267 /* oneTopicTableViewCell.swift */; };
+		AC9EF5871F8A356C0019D43B /* newTopicPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF5861F8A356C0019D43B /* newTopicPageController.swift */; };
 		ACE90DE71F88ACE900287505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE90DE61F88ACE900287505 /* AppDelegate.swift */; };
 		ACE90DE91F88ACE900287505 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE90DE81F88ACE900287505 /* ViewController.swift */; };
 		ACE90DEC1F88ACE900287505 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE90DEA1F88ACE900287505 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		8F1590CF1F89133700CFD267 /* classApiControllerRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classApiControllerRequests.swift; sourceTree = "<group>"; };
 		8F1590D11F893A8700CFD267 /* oneTopicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneTopicTableView.swift; sourceTree = "<group>"; };
 		8F1590D31F89463300CFD267 /* oneTopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneTopicTableViewCell.swift; sourceTree = "<group>"; };
+		AC9EF5861F8A356C0019D43B /* newTopicPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newTopicPageController.swift; sourceTree = "<group>"; };
 		ACE90DE31F88ACE900287505 /* intraForumView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intraForumView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE90DE61F88ACE900287505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACE90DE81F88ACE900287505 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				8F1590C81F8907A200CFD267 /* classApiControllerTopics.swift */,
 				8F1590C91F8907A200CFD267 /* classResponse.swift */,
 				8F1590CA1F8907A200CFD267 /* classTopic.swift */,
+				AC9EF5861F8A356C0019D43B /* newTopicPageController.swift */,
 			);
 			path = intraForumView;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				8F1590CD1F8907A200CFD267 /* classResponse.swift in Sources */,
 				ACE90DE91F88ACE900287505 /* ViewController.swift in Sources */,
 				ACE90DFF1F8902AB00287505 /* topicsTableView.swift in Sources */,
+				AC9EF5871F8A356C0019D43B /* newTopicPageController.swift in Sources */,
 				ACE90DE71F88ACE900287505 /* AppDelegate.swift in Sources */,
 				8F1590CE1F8907A200CFD267 /* classTopic.swift in Sources */,
 				8F1590CB1F8907A200CFD267 /* classApiControllerMessages.swift in Sources */,
