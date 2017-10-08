@@ -230,21 +230,17 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="1W4-ZQ-RCi" secondAttribute="trailing" id="DK6-fW-Djx"/>
-                                                        <constraint firstItem="z85-kU-qkp" firstAttribute="leading" secondItem="b5b-c6-WZb" secondAttribute="leading" id="Il3-tY-KlU"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="eaw-ed-7oA" firstAttribute="top" secondItem="Hni-EK-iU3" secondAttribute="top" id="4jJ-gE-btP"/>
                                                 <constraint firstItem="eaw-ed-7oA" firstAttribute="width" secondItem="Hni-EK-iU3" secondAttribute="width" id="5E4-Wl-hvZ"/>
-                                                <constraint firstItem="b5b-c6-WZb" firstAttribute="width" secondItem="Hni-EK-iU3" secondAttribute="width" id="Msg-Up-sdX"/>
+                                                <constraint firstItem="b5b-c6-WZb" firstAttribute="width" secondItem="Hni-EK-iU3" secondAttribute="width" id="hi4-CH-0dR"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Hni-EK-iU3" secondAttribute="trailing" constant="2" id="IKd-T4-yIi"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Hni-EK-iU3" secondAttribute="trailing" constant="2" id="LTZ-t3-9S8"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Hni-EK-iU3" secondAttribute="bottom" constant="2" id="TVu-kP-KCg"/>
                                         <constraint firstItem="Hni-EK-iU3" firstAttribute="leading" secondItem="fzN-5T-0h0" secondAttribute="leadingMargin" constant="2" id="URb-HV-naz"/>
                                         <constraint firstItem="Hni-EK-iU3" firstAttribute="top" secondItem="fzN-5T-0h0" secondAttribute="topMargin" constant="2" id="Xj4-Hb-7fT"/>
