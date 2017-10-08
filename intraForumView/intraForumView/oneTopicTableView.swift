@@ -81,6 +81,12 @@ class oneTopicTableView: UITableViewController, API42Delegate {
         return 40.0
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("select row \(indexPath.row)")
+    }
+    
+    /* SEGUE */
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if (identifier == "segueToResponses") {
             if let original_cell = sender as? oneTopicTableViewCell {
