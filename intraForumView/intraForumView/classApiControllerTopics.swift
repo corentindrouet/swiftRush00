@@ -13,8 +13,10 @@ class APIControllerTopics : APIControllerRequests
     
     func getTopics()
     {
-        if let request = self.getRequestForUrl(url: "/topics", httpMethod: "GET")
+        print("start to get topics")
+        if let request = self.getRequestForUrl(url: "/topics?sort=-created_at", httpMethod: "GET")
         {
+            print("will start task")
             let task = URLSession.shared.dataTask(with: request)
             {
                 (data, response, error) in
@@ -81,6 +83,29 @@ class APIControllerTopics : APIControllerRequests
         }
     }
     
+    func deleteTopic(topic_id: UInt)
+    {
+        if let request = self.getRequestForUrl(url: "/topics/" + String(topic_id), httpMethod: "DELETE")
+        {
+            let task = URLSession.shared.dataTask(with: request)
+            {
+                (data, response, error) in
+                print(response!)
+                if let err = error {
+                    self.delegate?.requestFailed(error: err)
+                }
+                else
+                {
+                    print(response!)
+                    DispatchQueue.main.async {
+                        self.delegate?.requestSuccess(data: nil)
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
     /* private */
     
     // on topic array :
@@ -110,7 +135,7 @@ class APIControllerTopics : APIControllerRequests
                 var id:UInt = 0
                 var title = ""
                 var text = ""
-                var author = ""
+                let author:Author = Author(id: 0, name: "")
                 var date:Date = Date()
                 var message_id:UInt = 0
                     
@@ -127,8 +152,11 @@ class APIControllerTopics : APIControllerRequests
                     }
                     /* author */
                     if let get_author = topic["author"] as? NSDictionary {
-                        if let get_author_name = get_author["login"] as? String {
-                            author = get_author_name
+                        if let get_user_id = get_author["id"] as? UInt {
+                            author.id = get_user_id
+                        }
+                        if let get_user_name = get_author["login"] as? String {
+                            author.name = get_user_name
                         }
                     }
                     /* date */

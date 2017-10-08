@@ -12,11 +12,11 @@ class Response : NSObject
 {
     let id: UInt
     let text: String
-    let author: String
+    let author: Author
     let date: Date
     let responses:[Response]?
     
-    init(id: UInt, text: String, author: String, date: Date, responses: [Response]?) {
+    init(id: UInt, text: String, author: Author, date: Date, responses: [Response]?) {
         self.id = id
         self.text = text
         self.author = author

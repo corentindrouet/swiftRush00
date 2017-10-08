@@ -21,8 +21,8 @@ class oneTopicTableViewCell: UITableViewCell {
                 let format = DateFormatter()
                 format.dateFormat = "yyyy MM dd HH:mm:ss"
                 
-                self.authorLabel.text = msg.author
                 self.contentLabel.text = msg.text
+                self.authorLabel.text = msg.author.name
                 self.dateLabel.text = format.string(from: msg.date)
             }
         }

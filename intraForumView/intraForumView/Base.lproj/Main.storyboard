@@ -301,6 +301,7 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="Hni-EK-iU3" secondAttribute="bottom" constant="2" id="deO-o5-aJG"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="authorLabel" destination="XDx-Eh-Rrh" id="GQo-xS-ccs"/>
                                     <outlet property="contentLabel" destination="z85-kU-qkp" id="e4P-sa-AlT"/>

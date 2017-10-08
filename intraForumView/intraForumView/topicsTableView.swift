@@ -49,9 +49,9 @@ class topicsTableView: UITableViewController, API42Delegate {
         }
     }
     
-    
     func requestFailed(error: Error)
     {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         let alert = UIAlertController(title: "Alert", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -69,12 +69,33 @@ class topicsTableView: UITableViewController, API42Delegate {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        let topic:Topic = topics[indexPath.row]
+        if (topic.author.id == apiController?.userId)
+        {
+            print("yes I can :)")
+            return true
+        }
+        return false
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if (editingStyle == .delete) {
+            print("delete")
+            apiController?.deleteTopic(topic_id: topics[indexPath.row].id)
+            topics.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
+    
     /* on load */
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.tableView.allowsMultipleSelectionDuringEditing = false
     }
     
     /* navigation */
@@ -84,7 +105,6 @@ class topicsTableView: UITableViewController, API42Delegate {
             if let origin_cell = sender as? topicViewCell
             {
                 if let dest = segue.destination as? oneTopicTableView {
-                    print("coucou")
                     dest.apiController = APIControllerMessages(message_id: origin_cell.topic!.id, is_topic: true, controller: apiController!)
                 }
             }

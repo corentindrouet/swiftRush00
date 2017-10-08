@@ -23,7 +23,7 @@ class topicViewCell: UITableViewCell {
                 format.dateFormat = "yyyy MM dd HH:mm:ss"
                 
                 titleLabel.text = currentTopic.title
-                authorLabel.text = "By " + currentTopic.author
+                authorLabel.text = "By " + currentTopic.author.name
                 descriptionLabel.text = currentTopic.text
                 dateLabel.text = format.string(from: currentTopic.date)
             }

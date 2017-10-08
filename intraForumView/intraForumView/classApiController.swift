@@ -12,7 +12,7 @@ class APIController {
     weak var delegate: API42Delegate?
     var token: String?
     let credentials: credentialsStruct?
-    var userId: Int?
+    var userId: UInt?
     
     init(newDelegate: API42Delegate?, newCredentials: credentialsStruct, code: String) {
         self.delegate = newDelegate
@@ -34,10 +34,7 @@ class APIController {
                     if let dic: NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
                         if let newToken = dic["access_token"] as? String {
                             self.token = "Bearer " + newToken
-                            DispatchQueue.main.async {
-                                self.getUserId()
-                                self.delegate?.requestSuccess(data: self.token!)
-                            }
+                            self.getUserId()
                         }
                     }
                 } catch (let err) {
@@ -71,10 +68,13 @@ class APIController {
             } else if let d = data {
                 do {
                     if let dic: NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
-                        if let id = dic["id"] as? Int {
+                        if let id = dic["id"] as? UInt {
                             print("USERID")
                             self.userId = id
                             print(self.userId!)
+                            DispatchQueue.main.async {
+                                self.delegate?.requestSuccess(data: self.token!)
+                            }
                         }
                     }
                 } catch (let err) {

@@ -13,11 +13,11 @@ class Topic : NSObject {
     let id: UInt
     let title: String
     let text: String
-    let author: String
+    let author: Author
     let date: Date
     let message_id: UInt
     
-    init(id: UInt, title: String, text: String, author: String, date: Date, message_id: UInt)
+    init(id: UInt, title: String, text: String, author: Author, date: Date, message_id: UInt)
     {
         self.id = id
         self.title = title

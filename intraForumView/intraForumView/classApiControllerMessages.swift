@@ -64,7 +64,7 @@ class APIControllerMessages : APIControllerRequests
             (rawMessage) in
             var id:UInt = 0
             var text = ""
-            var author = ""
+            let author:Author = Author(id: 0, name: "")
             var date: Date = Date()
             var replies: NSArray = []
             var responses:[Response] = [Response]()
@@ -77,8 +77,11 @@ class APIControllerMessages : APIControllerRequests
                 }
                 /* author */
                 if let get_author = message["author"] as? NSDictionary {
+                    if let get_user_id = get_author["id"] as? UInt {
+                        author.id = get_user_id
+                    }
                     if let get_user_name = get_author["login"] as? String {
-                        author = get_user_name
+                        author.name = get_user_name
                     }
                 }
                 /* content */
