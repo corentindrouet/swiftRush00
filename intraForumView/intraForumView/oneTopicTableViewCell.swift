@@ -14,7 +14,6 @@ class oneTopicTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var isResponsesLabel: UILabel!
-    @IBOutlet weak var editButton: UIButton!
     
     var message:Response? {
         didSet {

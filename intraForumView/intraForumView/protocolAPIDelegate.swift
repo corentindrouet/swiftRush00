@@ -10,4 +10,5 @@ import Foundation
 
 protocol API42Delegate: NSObjectProtocol {
     func requestSuccess(data: Any?)
+    func requestFailed(error: Error)
 }

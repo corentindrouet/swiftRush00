@@ -27,6 +27,7 @@ class APIController {
             (data, response, error) in
             print(response!)
             if let err = error {
+                self.delegate?.requestFailed(error: err)
                 print(err)
             } else if let d = data {
                 do {
@@ -40,6 +41,7 @@ class APIController {
                         }
                     }
                 } catch (let err) {
+                    self.delegate?.requestFailed(error: err)
                     print(err)
                 }
             }
@@ -65,6 +67,7 @@ class APIController {
             print(response!)
             if let err = error {
                 print(err)
+                self.delegate?.requestFailed(error: err)
             } else if let d = data {
                 do {
                     if let dic: NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
@@ -73,6 +76,7 @@ class APIController {
                         }
                     }
                 } catch (let err) {
+                    self.delegate?.requestFailed(error: err)
                     print(err)
                 }
             }

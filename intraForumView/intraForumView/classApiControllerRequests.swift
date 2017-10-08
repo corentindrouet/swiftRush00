@@ -34,7 +34,7 @@ class APIControllerRequests : APIController
     {
         if let err = error {
             print (err)
-//          self.delegate.getMessagesError(err)
+            self.delegate?.requestFailed(error: err)
         }
         else
         {
@@ -52,9 +52,8 @@ class APIControllerRequests : APIController
                 catch (let err)
                 {
                     print (err)
-//                  self.delegate?.getMessagesError()
+                    self.delegate?.requestFailed(error: err)
                 }
-                
             }
         }
         return (nil)

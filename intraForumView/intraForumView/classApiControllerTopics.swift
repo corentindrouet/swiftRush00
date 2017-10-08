@@ -106,7 +106,7 @@ class APIControllerTopics : APIControllerRequests
                         }
                     }
                 }
-                return Topic(id: id, title: title, text: text, author: author, date: date, message_id: message_id) // DATE TEMP
+                return Topic(id: id, title: title, text: text, author: author, date: date, message_id: message_id)
             }
         return topics
     }

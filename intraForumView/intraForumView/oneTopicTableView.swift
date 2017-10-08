@@ -44,6 +44,14 @@ class oneTopicTableView: UITableViewController, API42Delegate {
         messagesTableView.reloadData()
     }
     
+    
+    func requestFailed(error: Error)
+    {
+        let alert = UIAlertController(title: "Alert", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     /* table View */
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,6 +67,7 @@ class oneTopicTableView: UITableViewController, API42Delegate {
         if cell.message?.responses?.count == 0 {
             cell.isResponsesLabel.isHidden =  true
         }
+//        if cell.message?.author
         
         return cell
     }

@@ -49,6 +49,14 @@ class topicsTableView: UITableViewController, API42Delegate {
         }
     }
     
+    
+    func requestFailed(error: Error)
+    {
+        let alert = UIAlertController(title: "Alert", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     /* table view */
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

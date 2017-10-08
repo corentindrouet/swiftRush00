@@ -22,6 +22,13 @@ class ViewController: UIViewController, API42Delegate, UIWebViewDelegate {
         print("login succeed")
         performSegue(withIdentifier: "segueToTopics", sender: nil)
     }
+    
+    func requestFailed(error: Error)
+    {
+        let alert = UIAlertController(title: "Alert", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 
     @IBOutlet weak var webView: UIWebView! {
         didSet {
