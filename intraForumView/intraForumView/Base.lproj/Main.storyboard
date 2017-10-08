@@ -193,24 +193,25 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Hni-EK-iU3">
                                             <rect key="frame" x="10" y="10" width="355" height="46"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eaw-ed-7oA">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="eaw-ed-7oA">
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="25.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDx-Eh-Rrh" userLabel="Author">
-                                                            <rect key="frame" x="0.0" y="0.0" width="118.5" height="25.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="170.5" height="25.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0047816680739999999" green="0.72666072849999996" blue="0.73722946639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzY-ti-cUA">
-                                                            <rect key="frame" x="118.5" y="0.0" width="118" height="25.5"/>
+                                                            <rect key="frame" x="170.5" y="0.0" width="14" height="25.5"/>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <state key="normal" title="Edit">
                                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siz-mn-gLh" userLabel="Date">
-                                                            <rect key="frame" x="236.5" y="0.0" width="118.5" height="25.5"/>
+                                                            <rect key="frame" x="184.5" y="0.0" width="170.5" height="25.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -257,6 +258,7 @@
                                     <outlet property="authorLabel" destination="XDx-Eh-Rrh" id="GQo-xS-ccs"/>
                                     <outlet property="contentLabel" destination="z85-kU-qkp" id="e4P-sa-AlT"/>
                                     <outlet property="dateLabel" destination="siz-mn-gLh" id="R6c-hU-Szh"/>
+                                    <outlet property="editButton" destination="tzY-ti-cUA" id="YpK-cT-0LM"/>
                                     <outlet property="isResponsesLabel" destination="1W4-ZQ-RCi" id="sw9-C3-OlV"/>
                                     <outlet property="textLabel" destination="z85-kU-qkp" id="Zey-RD-eAf"/>
                                     <segue destination="99V-FO-9lP" kind="show" identifier="segueToResponses" id="PYg-FW-RNt"/>

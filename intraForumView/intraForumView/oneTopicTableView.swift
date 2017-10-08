@@ -75,6 +75,7 @@ class oneTopicTableView: UITableViewController, API42Delegate {
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if (identifier == "segueToResponses") {
             if let original_cell = sender as? oneTopicTableViewCell {
+                
                 /* don't perform segue if there is no response to the post */
                 if original_cell.message!.responses!.count == 0  {
                     return (false)
