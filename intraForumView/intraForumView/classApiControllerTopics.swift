@@ -23,6 +23,8 @@ class APIControllerTopics : APIControllerRequests
                 if let response: NSArray = self.parseRequestToArray(data: data, response: response, error: error)
                 {
                     let topics = self.parseTopics(data: response)
+                    print("allTopicsGetted")
+                    print(topics.count)
                     //print(topics)
                     DispatchQueue.main.async {
                         self.delegate?.requestSuccess(data: topics)

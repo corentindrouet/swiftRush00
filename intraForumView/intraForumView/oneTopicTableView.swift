@@ -111,6 +111,7 @@ class oneTopicTableView: UITableViewController, API42Delegate {
                 if let original_cell = sender as? oneTopicTableViewCell {
                     // le message duquel on regarde les reponses n'est pas affiche
                     dest.messages = (original_cell.message?.responses)!
+                    print(dest.messages)
                     //dest.apiController = self.apiController!
                     //dest.apiController?.is_topic = false
                     //dest.apiController?.message_id = (original_cell.message?.id)!

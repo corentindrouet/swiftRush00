@@ -62,7 +62,7 @@ class APIController {
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/x-www-form-urlencoded;charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        request.setValue(self.token, forHTTPHeaderField: "Authorization")
+        request.setValue(self.token!, forHTTPHeaderField: "Authorization")
         let task = URLSession.shared.dataTask(with: request) {
             (data, response, error) in
             print(response!)
@@ -71,14 +71,24 @@ class APIController {
                 self.delegate?.requestFailed(error: err)
             } else if let d = data {
                 do {
+                    print(d)
                     if let dic: NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
+                        print(dic)
                         if let id = dic["id"] as? UInt {
                             print("USERID")
                             self.userId = id
-                            print(self.userId!)
-                            DispatchQueue.main.async {
-                                self.delegate?.requestSuccess(data: self.token!)
+                        } else if let dicData = dic["data"] as? NSDictionary {
+                            print(dic)
+                            if let id = dicData["id"] as? String {
+                                print("USERID")
+                                self.userId = UInt(id)
                             }
+                        } else {
+                            return
+                        }
+                        print(self.userId!)
+                        DispatchQueue.main.async {
+                            self.delegate?.requestSuccess(data: self.token!)
                         }
                     }
                 } catch (let err) {
