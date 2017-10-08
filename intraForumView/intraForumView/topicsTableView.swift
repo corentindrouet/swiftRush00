@@ -83,7 +83,4 @@ class topicsTableView: UITableViewController, API42Delegate {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-    }
-    
 }
