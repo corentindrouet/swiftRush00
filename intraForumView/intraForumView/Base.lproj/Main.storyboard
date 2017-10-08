@@ -135,10 +135,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Topics" id="OB6-JP-oIO"/>
                     <connections>
+                        <outlet property="NavigationBarTopics" destination="OB6-JP-oIO" id="yzY-z8-gAz"/>
                         <outlet property="topicTableView" destination="bWt-Vb-JRF" id="ViX-cV-Jh5"/>
+                        <segue destination="f3i-Rh-0BL" kind="unwind" identifier="segueToReconnect" unwindAction="unWindSegueWithSegue:" id="i53-zZ-oTh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rJD-fm-4P2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="f3i-Rh-0BL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3252" y="-282.00899550224892"/>
         </scene>
