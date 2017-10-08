@@ -13,6 +13,11 @@ class topicsTableView: UITableViewController, API42Delegate {
     @IBOutlet weak var NavigationBarTopics: UINavigationItem!
     @IBOutlet var topicTableView: UITableView!
     
+    @IBAction func disconnectButtonClick(_ sender: Any) {
+        print("IT WILL DISAPEAR")
+        self.performSegue(withIdentifier: "segueToReconnect", sender: nil)
+    }
+    
     var apiController: APIControllerTopics? {
         didSet {
             if let apiCtrl = apiController {
@@ -60,6 +65,7 @@ class topicsTableView: UITableViewController, API42Delegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
@@ -74,21 +80,10 @@ class topicsTableView: UITableViewController, API42Delegate {
                     dest.apiController = APIControllerMessages(message_id: origin_cell.topic!.id, is_topic: true, controller: apiController!)
                 }
             }
-        } /*else if segue.identifier == "segueToReconnect" {
-            if let vc = segue.destination as? UIViewController {
-                
-            }
-        }*/
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print("IT WILL DISAPEAR")
-        self.performSegue(withIdentifier: "segueToReconnect", sender: nil)
     }
-    
-    /*func backAction(){
-        //print("Back Button Clicked")
-        self.performSegue(withIdentifier: "segueToReconnect", sender: nil)
-    }*/
     
 }

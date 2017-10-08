@@ -84,6 +84,10 @@ class APIControllerTopics : APIControllerRequests
                     /* date */
                     if let get_date = topic["created_at"] as? String {
                         let formatter = ISO8601DateFormatter()
+                        formatter.formatOptions = [.withFullDate,
+                                                   .withTime,
+                                                   .withDashSeparatorInDate,
+                                                   .withColonSeparatorInTime]
                         if let convert_date = formatter.date(from: get_date) {
                             date = convert_date
                         }

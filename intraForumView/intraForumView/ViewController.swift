@@ -56,12 +56,14 @@ class ViewController: UIViewController, API42Delegate, UIWebViewDelegate {
     }
     
     @IBAction func unWindSegue(segue: UIStoryboardSegue) {
-        apiController = nil
-        let storage = HTTPCookieStorage.shared
-        for cookie in storage.cookies! {
-            storage.deleteCookie(cookie)
+        if segue.identifier == "segueToReconnect" {
+            apiController = nil
+            let storage = HTTPCookieStorage.shared
+            for cookie in storage.cookies! {
+                storage.deleteCookie(cookie)
+            }
+            self.webView.reload()
         }
-        self.webView.reload()
     }
 }
 

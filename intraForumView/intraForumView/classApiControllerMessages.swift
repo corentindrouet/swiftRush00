@@ -65,7 +65,7 @@ class APIControllerMessages : APIControllerRequests
             var id:UInt = 0
             var text = ""
             var author = ""
-            var date = ""
+            var date: Date = Date()
             var replies: NSArray = []
             var responses:[Response] = [Response]()
             
@@ -91,14 +91,21 @@ class APIControllerMessages : APIControllerRequests
                 }
                 /* date */
                 if let get_date = message["created_at"] as? String {
-                    date = get_date // temp
+                    let formatter = ISO8601DateFormatter()
+                    formatter.formatOptions = [.withFullDate,
+                                               .withTime,
+                                               .withDashSeparatorInDate,
+                                               .withColonSeparatorInTime]
+                    if let convert_date = formatter.date(from: get_date) {
+                        date = convert_date
+                    }
                 }
             }
             
             if replies.count > 0 {
                 responses = parseMessages(data: replies)
             }
-            return (Response(id: id, text: text, author: author, date: Date(), responses: responses)) // temp date
+            return (Response(id: id, text: text, author: author, date: date, responses: responses)) // temp date
         }
         return messages
     }
