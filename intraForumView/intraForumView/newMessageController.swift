@@ -37,7 +37,7 @@ class newMessageController: UIViewController, API42Delegate {
         print(error)
     }
 
-    @IBAction func AddMessage(_ sender: Any) {
+    @IBAction func addMessage(_ sender: Any) {
         apiControllerMessage?.createMessage(text: newMessageText.text)
     }
     /*

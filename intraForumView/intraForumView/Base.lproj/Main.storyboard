@@ -230,7 +230,7 @@
             </objects>
             <point key="canvasLocation" x="4037.5999999999999" y="41.829085457271368"/>
         </scene>
-        <!--Topic Messages-->
+        <!--Messages-->
         <scene sceneID="fDg-12-QlH">
             <objects>
                 <tableViewController id="99V-FO-9lP" customClass="oneTopicTableView" customModule="intraForumView" customModuleProvider="target" sceneMemberID="viewController">
@@ -258,19 +258,8 @@
                                                             <color key="textColor" red="0.0047816680739999999" green="0.72666072849999996" blue="0.73722946639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siz-mn-gLh" userLabel="Date">
-                                                            <rect key="frame" x="177.5" y="0.0" width="177.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="b5b-c6-WZb">
-                                                    <rect key="frame" x="0.0" y="20.5" width="355" height="25.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z85-kU-qkp" userLabel="Text">
-                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="25.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siz-mn-gLh" userLabel="Date">
+                                                            <rect key="frame" x="167.5" y="0.0" width="110" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -328,10 +317,10 @@
                             <outlet property="delegate" destination="99V-FO-9lP" id="X4P-QL-viL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Topic Messages" id="bX2-pE-kr3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jRw-QM-iM5">
+                    <navigationItem key="navigationItem" title="Messages" id="2AF-7g-Z6z">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WQk-h3-5Pe">
                             <connections>
-                                <segue destination="CAc-l4-Puy" kind="show" identifier="newMessageSegue" id="gG7-mH-lkr"/>
+                                <segue destination="Dd6-Un-8sN" kind="show" identifier="newMessageSegue" id="op4-5n-MW8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -344,18 +333,18 @@
             <point key="canvasLocation" x="4037.5999999999999" y="-686.80659670164926"/>
         </scene>
         <!--New message-->
-        <scene sceneID="rZv-zo-cGD">
+        <scene sceneID="Boc-HZ-TB1">
             <objects>
-                <viewController id="CAc-l4-Puy" customClass="newMessageController" customModule="intraForumView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dd6-Un-8sN" customClass="newMessageController" customModule="intraForumView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="V4G-jl-d31"/>
-                        <viewControllerLayoutGuide type="bottom" id="ELU-9u-09A"/>
+                        <viewControllerLayoutGuide type="top" id="Q8i-aX-AT1"/>
+                        <viewControllerLayoutGuide type="bottom" id="cCq-GO-2AE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6mV-tb-ePz">
+                    <view key="view" contentMode="scaleToFill" id="9uR-OH-g1R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aVx-wk-b5h">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hGX-3o-zkY">
                                 <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -364,28 +353,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aVx-wk-b5h" firstAttribute="centerY" secondItem="6mV-tb-ePz" secondAttribute="centerY" id="2Vl-t2-sbD"/>
-                            <constraint firstItem="aVx-wk-b5h" firstAttribute="width" secondItem="6mV-tb-ePz" secondAttribute="width" id="6bz-JE-Kaz"/>
-                            <constraint firstItem="aVx-wk-b5h" firstAttribute="height" secondItem="6mV-tb-ePz" secondAttribute="height" id="bYe-v3-IRD"/>
-                            <constraint firstItem="aVx-wk-b5h" firstAttribute="centerX" secondItem="6mV-tb-ePz" secondAttribute="centerX" id="fEb-fp-SX0"/>
+                            <constraint firstItem="hGX-3o-zkY" firstAttribute="height" secondItem="9uR-OH-g1R" secondAttribute="height" id="4ZB-Ak-Dia"/>
+                            <constraint firstItem="hGX-3o-zkY" firstAttribute="centerY" secondItem="9uR-OH-g1R" secondAttribute="centerY" id="N2I-Lb-hnL"/>
+                            <constraint firstItem="hGX-3o-zkY" firstAttribute="width" secondItem="9uR-OH-g1R" secondAttribute="width" id="aVs-mC-ejH"/>
+                            <constraint firstItem="hGX-3o-zkY" firstAttribute="centerX" secondItem="9uR-OH-g1R" secondAttribute="centerX" id="fhm-mh-gJX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New message" id="PBK-rF-rOu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="OlG-Tg-EEC">
+                    <navigationItem key="navigationItem" title="New message" id="UFk-Ld-c7F">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="7jE-2Q-X6U">
                             <connections>
-                                <action selector="AddMessage:" destination="CAc-l4-Puy" id="Nee-jJ-hqZ"/>
+                                <action selector="addMessage:" destination="Dd6-Un-8sN" id="B5d-GS-5M5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="newMessageText" destination="aVx-wk-b5h" id="k7K-3v-csP"/>
-                        <segue destination="avW-Pw-u2d" kind="unwind" identifier="newMessageSegue" unwindAction="unWindSegueNewMessageWithSegue:" id="Jyi-Ic-YEb"/>
+                        <outlet property="newMessageText" destination="hGX-3o-zkY" id="VcJ-6h-LgY"/>
+                        <segue destination="dXx-EO-GR4" kind="unwind" identifier="newMessageSegue" unwindAction="unWindSegueNewMessageWithSegue:" id="Y4w-X8-Z7W"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bw9-Y4-6z7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="avW-Pw-u2d" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C8f-5X-9VZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dXx-EO-GR4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4703" y="-687"/>
+            <point key="canvasLocation" x="4708" y="-687"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b6j-v7-f1k">

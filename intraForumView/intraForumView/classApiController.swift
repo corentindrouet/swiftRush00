@@ -34,7 +34,10 @@ class APIController {
                     if let dic: NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
                         if let newToken = dic["access_token"] as? String {
                             self.token = "Bearer " + newToken
-                            self.getUserId()
+                            DispatchQueue.main.async {
+                                //self.delegate?.requestSuccess(data: nil)
+                                self.getUserId()
+                            }
                         }
                     }
                 } catch (let err) {
